@@ -4,7 +4,6 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed = 5;
-    private float _dirX, _dirZ;
 
     [SerializeField] private Joystick joystick;
 
@@ -13,17 +12,12 @@ public class Movement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
     }
-    private void Update()
-    {
-        _dirX = joystick.Horizontal;
-        _dirZ = joystick.Vertical;
-    }
     private void FixedUpdate()
     {
         Vector3 move = new Vector3(joystick.Horizontal * speed, _rb.velocity.y, joystick.Vertical * speed);
         _rb.velocity = move;
 
-        if(joystick.Horizontal != 0 || joystick.Vertical != 0)
+        if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
             transform.rotation = Quaternion.LookRotation(_rb.velocity);
         }
