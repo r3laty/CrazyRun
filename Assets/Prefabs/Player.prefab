@@ -222,9 +222,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8844074678889351632}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957eca89be97ba44fb5b90d4d3431adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 35
   joystick: {fileID: 0}
 --- !u!114 &3858942906369616082
 MonoBehaviour:
@@ -267,4 +267,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16414dcc29cbb8144b8d065a1e567d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 70
+  jumpForce: 100
+  groundDistance: 0.5

@@ -21,6 +21,5 @@ public class Movement : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(_rb.velocity);
         }
-        Debug.Log("Mobile");
     }
 }

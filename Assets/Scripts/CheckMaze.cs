@@ -28,5 +28,6 @@ public class CheckMaze : MonoBehaviour
     private void AnimateThePassage()
     {
         playableDirector.Play();
+        checkButton.gameObject.SetActive(false);
     }
 }
