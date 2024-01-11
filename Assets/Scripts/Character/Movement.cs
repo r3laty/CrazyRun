@@ -14,12 +14,13 @@ public class Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 move = new Vector3(joystick.Horizontal * speed, _rb.velocity.y, joystick.Vertical * speed);
-        _rb.velocity = move;
+        Vector3 moveMobile = new Vector3(joystick.Horizontal * speed, _rb.velocity.y, joystick.Vertical * speed);
+        _rb.velocity = moveMobile;
 
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
             transform.rotation = Quaternion.LookRotation(_rb.velocity);
         }
+        Debug.Log("Mobile");
     }
 }
