@@ -42,7 +42,6 @@ public class Timer : MonoBehaviour
             losePanel.SetActive(true);
         }
 
-        float seconds = Mathf.FloorToInt(_timeLeft % 60);
-        timerText.text = seconds.ToString() + " сек.";
+        timerText.text = _timeLeft.ToString("00") + " сек.";
     }
 }

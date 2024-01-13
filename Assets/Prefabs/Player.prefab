@@ -282,5 +282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de9aab4990f8ca441b34224ec832ab2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 45
+  time: 75
   timerText: {fileID: 0}
+  losePanel: {fileID: 0}
