@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 76395815}
   - component: {fileID: 76395814}
   - component: {fileID: 76395817}
+  - component: {fileID: 76395818}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -623,6 +624,22 @@ MonoBehaviour:
   m_Damping: 0
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
+--- !u!114 &76395818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76395813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5195c3706b43a7489b0b433e806cbc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1064585537}
+  cinemachine: {fileID: 76395814}
+  rotationSpeed: 0.5
+  raycaster: {fileID: 2138884410}
 --- !u!1 &86867586
 GameObject:
   m_ObjectHideFlags: 0
@@ -5678,7 +5695,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkButton: {fileID: 909252161}
-  playableDirector: {fileID: 2113065499}
+  timeline: {fileID: 2113065499}
+  cameraController: {fileID: 76395818}
+  character: {fileID: 3812460258071789564}
 --- !u!1 &738900769
 GameObject:
   m_ObjectHideFlags: 0
@@ -7712,6 +7731,7 @@ GameObject:
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
   - component: {fileID: 963194232}
+  - component: {fileID: 963194233}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7909,6 +7929,22 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &963194233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5195c3706b43a7489b0b433e806cbc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  cinemachine: {fileID: 0}
+  rotationSpeed: 0.5
+  raycaster: {fileID: 0}
 --- !u!1 &968368899
 GameObject:
   m_ObjectHideFlags: 0
@@ -9708,6 +9744,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261297536}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1269853874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1269853876}
+  - component: {fileID: 1269853875}
+  m_Layer: 0
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1269853875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269853874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9aab4990f8ca441b34224ec832ab2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 75
+  timerText: {fileID: 323085102}
+  losePanel: {fileID: 504172999}
+--- !u!4 &1269853876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269853874}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1324404100
 GameObject:
   m_ObjectHideFlags: 0
@@ -13550,7 +13633,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -15096,6 +15179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2113065500}
   - component: {fileID: 2113065499}
+  - component: {fileID: 2113065501}
   m_Layer: 0
   m_Name: TimelineHandler
   m_TagString: Untagged
@@ -15144,6 +15228,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2121156498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2113065501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113065498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: a62c34deaf7573c4b8073056da92f0be, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 728757337}
+          m_TargetAssemblyTypeName: CheckMaze, Assembly-CSharp
+          m_MethodName: EndOfCheck
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2120433793
 GameObject:
   m_ObjectHideFlags: 0
@@ -15838,7 +15952,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5457954405408956899, guid: 3a6a6b5ec112628438fb7c12f68447b1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15848,12 +15963,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3858942906369616082, guid: 3a6a6b5ec112628438fb7c12f68447b1, type: 3}
   m_PrefabInstance: {fileID: 3812460258071789562}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3812460258071789564}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16414dcc29cbb8144b8d065a1e567d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3812460258071789564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8844074678889351632, guid: 3a6a6b5ec112628438fb7c12f68447b1, type: 3}
+  m_PrefabInstance: {fileID: 3812460258071789562}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -15875,3 +15995,4 @@ SceneRoots:
   - {fileID: 1448017932}
   - {fileID: 866090240}
   - {fileID: 1926174929}
+  - {fileID: 1269853876}
